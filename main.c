@@ -6,12 +6,12 @@
 /*   By: yfawzi <yfawzi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 04:22:19 by yfawzi            #+#    #+#             */
-/*   Updated: 2023/05/01 17:47:11 by yfawzi           ###   ########.fr       */
+/*   Updated: 2023/05/01 18:05:02 by yfawzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosopher.h"
-
+ // needs to be parsed
 int	main(int arc, char **arv)
 {
 	pthread_t		*th;
