@@ -2,19 +2,21 @@ SRC =	error.c \
 		ft_atoi.c \
 		main.c \
 		runner.c \
-		utils.c
+		utils.c \
+		time.c \
+		threads.c
 
 OBJ =	$(SRC:.c=.o)
 
 CC =  cc
-FLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=thread -g
 RM = rm -f
 NAME = philo
 
 all = $(NAME)
 
 $(NAME): $(OBJ)
-	cc $(OBJ) -o $(NAME)
+	cc $(CFLAGS) $(OBJ) -o $(NAME)
 clean:
 	$(RM) $(OBJ)
 fclean:		clean

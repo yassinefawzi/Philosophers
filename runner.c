@@ -6,7 +6,7 @@
 /*   By: yfawzi <yfawzi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 15:11:02 by yfawzi            #+#    #+#             */
-/*   Updated: 2023/05/01 17:45:55 by yfawzi           ###   ########.fr       */
+/*   Updated: 2023/05/01 20:57:44 by yfawzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	routine(t_philo *p)
 
 void	*runit(void *arg)
 {
-	int		neat;
 	t_philo	*p;
 
 	p = arg;
@@ -51,5 +50,21 @@ void	*runit(void *arg)
 			print_time(p, "finished all his meals.");
 			p->args->neatlim++;
 		}
+	}
+}
+
+int	looper(t_philo *phil, t_args *args,  pthread_mutex_t *m_death)
+{
+	int	i;
+
+	i = 0;
+	while (1)
+	{
+		i = 0;
+		if (check_for_death(0, args, &phil[i], m_death) < 0)
+			return (-1);
+		if (args->neatlim == args->nophil)
+			return (-2);
+		i++;
 	}
 }

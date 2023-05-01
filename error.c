@@ -6,7 +6,7 @@
 /*   By: yfawzi <yfawzi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 04:26:30 by yfawzi            #+#    #+#             */
-/*   Updated: 2023/05/01 18:02:32 by yfawzi           ###   ########.fr       */
+/*   Updated: 2023/05/01 19:30:01 by yfawzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_zero_error_message(void)
 {
-	write(2, "Error zero had been found\n", 26);
+	write(2, "Error zero had been found\n", 27);
 }
 
 int	ft_negative_error(t_args args)
@@ -39,7 +39,7 @@ int	ft_negative_error(t_args args)
 
 void	ft_non_number_error_messgae(void)
 {
-	write(2, "Error non number found\n", 23);
+	write(2, "Error non number found\n", 24);
 }
 
 int	ft_non_number_error(int arc, char **str, int i, int j)
