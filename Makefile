@@ -9,14 +9,14 @@ SRC =	error.c \
 OBJ =	$(SRC:.c=.o)
 
 CC =  cc
-#CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 NAME = philo
 
 all = $(NAME)
 
 $(NAME): $(OBJ)
-	cc  $(OBJ) -o $(NAME)
+	cc $(CFLAGS) $(OBJ) -o $(NAME)
 clean:
 	$(RM) $(OBJ)
 fclean:		clean

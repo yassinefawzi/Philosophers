@@ -6,7 +6,7 @@
 /*   By: yfawzi <yfawzi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 04:22:40 by yfawzi            #+#    #+#             */
-/*   Updated: 2023/05/12 21:11:13 by yfawzi           ###   ########.fr       */
+/*   Updated: 2023/05/12 23:52:02 by yfawzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,12 @@ typedef struct t_args
 	int				ntoeat;
 	int				neatlim;
 	int				death;
+	int				breakloop;
+	int				i;
 	pthread_mutex_t	*mutex;
+	pthread_mutex_t	*m_eat;
+	pthread_mutex_t	*m_lim;
+
 }	t_args;
 
 typedef struct t_philo
@@ -37,6 +42,8 @@ typedef struct t_philo
 	pthread_mutex_t	*rfork;
 	pthread_mutex_t	*print;
 	pthread_mutex_t	*pm_death;
+	pthread_mutex_t	*pm_eat;
+	pthread_mutex_t	*pm_lim;
 	t_args			*args;
 	size_t			start;
 	size_t			time;
@@ -57,7 +64,7 @@ int		looper(t_philo *phil, t_args *args, pthread_mutex_t *m_death);
 t_args	*args_loader(t_args *args, char **arv);
 void	launch(t_philo *phil, t_args *args, pthread_t *th);
 int		check_for_death(int i, t_args *args,
-			t_philo *phil, pthread_mutex_t *m_death);
+			t_philo *phil);
 int		ft_non_number_error(int arc, char **str, int i, int j);
 void	data_loader(t_philo *phil, t_args *args,
 			pthread_mutex_t *printm, char *arv5);
