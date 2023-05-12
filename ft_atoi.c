@@ -6,7 +6,7 @@
 /*   By: yfawzi <yfawzi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 14:02:51 by yfawzi            #+#    #+#             */
-/*   Updated: 2023/04/27 17:50:38 by yfawzi           ###   ########.fr       */
+/*   Updated: 2023/05/12 20:31:26 by yfawzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_atoi(const char *str)
 	int						sign;
 
 	if (!str)
-		return (0);
+		return (-1);
 	sign = 1;
 	num = 0;
 	i = 0;

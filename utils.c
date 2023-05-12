@@ -6,13 +6,14 @@
 /*   By: yfawzi <yfawzi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 15:31:22 by yfawzi            #+#    #+#             */
-/*   Updated: 2023/05/01 21:26:45 by yfawzi           ###   ########.fr       */
+/*   Updated: 2023/05/12 21:10:31 by yfawzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosopher.h"
 
-void data_loader(t_philo *phil, t_args *args, pthread_mutex_t *printm, char *arv5)
+void	data_loader(t_philo *phil, t_args
+*args, pthread_mutex_t *printm, char *arv5)
 {
 	int	i;
 
@@ -25,8 +26,8 @@ void data_loader(t_philo *phil, t_args *args, pthread_mutex_t *printm, char *arv
 		phil[i].args = args;
 		phil[i].noteat = 0;
 		phil[i].lfork = &phil[i].args->mutex[i];
-		phil[i].rfork = &phil[i].args->mutex[(i + 1) %
-			args->nophil];
+		phil[i].rfork = &phil[i].args->mutex[
+			(i + 1) % args->nophil];
 		phil[i].start_time = get_current_time();
 		phil[i].death = 0;
 		phil[i].print = printm;
@@ -34,20 +35,19 @@ void data_loader(t_philo *phil, t_args *args, pthread_mutex_t *printm, char *arv
 	}
 }
 
-int check_for_death(int i, t_args *args, t_philo *phil, pthread_mutex_t *m_death)
+int	check_for_death(int i, t_args *args, t_philo
+*phil, pthread_mutex_t *m_death)
 {
 	size_t	ping;
 
 	while (i < args->nophil)
 	{
 		ping = get_current_time();
-		pthread_mutex_lock(m_death);
 		if ((ping - phil->time) >= args->die)
 		{
 			print_time(phil, "died.");
 			return (-1);
 		}
-		pthread_mutex_unlock(m_death);
 		i++;
 	}
 	return (0);

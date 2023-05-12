@@ -6,7 +6,7 @@
 /*   By: yfawzi <yfawzi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 15:11:02 by yfawzi            #+#    #+#             */
-/*   Updated: 2023/05/01 20:57:44 by yfawzi           ###   ########.fr       */
+/*   Updated: 2023/05/12 21:07:08 by yfawzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,18 +53,27 @@ void	*runit(void *arg)
 	}
 }
 
-int	looper(t_philo *phil, t_args *args,  pthread_mutex_t *m_death)
+int	looper(t_philo *phil, t_args *args, pthread_mutex_t *m_death)
 {
 	int	i;
 
 	i = 0;
 	while (1)
 	{
-		i = 0;
+		pthread_mutex_lock(m_death);
 		if (check_for_death(0, args, &phil[i], m_death) < 0)
+		{
+			pthread_mutex_unlock(m_death);
 			return (-1);
+		}
 		if (args->neatlim == args->nophil)
+		{
+			pthread_mutex_unlock(m_death);
 			return (-2);
+		}
 		i++;
+		pthread_mutex_unlock(m_death);
+		if (i >= args->nophil)
+			i = 0;
 	}
 }

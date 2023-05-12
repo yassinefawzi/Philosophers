@@ -6,7 +6,7 @@
 /*   By: yfawzi <yfawzi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 19:00:15 by yfawzi            #+#    #+#             */
-/*   Updated: 2023/05/01 20:39:17 by yfawzi           ###   ########.fr       */
+/*   Updated: 2023/05/12 21:07:24 by yfawzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	launch(t_philo *phil, t_args *args, pthread_t *th)
 
 	i = 0;
 	phil[0].start = get_current_time();
-	
 	while (i < args->nophil)
 	{
 		phil[i].time = phil[0].start;

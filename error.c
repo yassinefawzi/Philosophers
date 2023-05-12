@@ -6,7 +6,7 @@
 /*   By: yfawzi <yfawzi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 04:26:30 by yfawzi            #+#    #+#             */
-/*   Updated: 2023/05/01 19:30:01 by yfawzi           ###   ########.fr       */
+/*   Updated: 2023/05/12 21:03:58 by yfawzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,3 @@ int	ft_non_number_error(int arc, char **str, int i, int j)
 	}
 	return (0);
 }
-
